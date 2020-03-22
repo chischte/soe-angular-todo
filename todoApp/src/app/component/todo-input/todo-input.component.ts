@@ -17,12 +17,9 @@ export class TodoInputComponent implements OnInit {
   name: string;
   activity: string;
   newEntry: todo;
-  loescher: string;
 
   addTodo() {
-    //this.newEntry.name = this.name;
-   // this.newEntry.activity = this.activity;
-    this.loescher = "okydoky";
+      this.newEntry = {name:this.name,activity:this.activity};
   }
 
 }
