@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {todo} from "../model/todo";
 
 @Component({
   selector: 'app-todo-input',
@@ -7,12 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodoInputComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-  addTodo(){
 
+  name: string;
+  activity: string;
+  newEntry: todo;
+  loescher: string;
+
+  addTodo() {
+    //this.newEntry.name = this.name;
+   // this.newEntry.activity = this.activity;
+    this.loescher = "okydoky";
   }
 
 }

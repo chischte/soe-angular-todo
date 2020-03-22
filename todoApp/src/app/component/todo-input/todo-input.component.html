@@ -1,6 +1,8 @@
-<span>Name: <input id="name" type="text"></span>
+<span>Name: <input id="name" [(ngModel)]="name"></span>
 <p></p>
-<span>Todo: <input id="todo" type="text"></span>
+<span>Todo: <input id="activity" [(ngModel)]="activity"></span>
 <p></p>
 <button (click)="addTodo()">Submit</button>
+<p></p>
+<span>{{loescher}}</span>
 
