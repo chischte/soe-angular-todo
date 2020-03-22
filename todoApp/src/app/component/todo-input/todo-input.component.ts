@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {todo} from "../model/todo";
 
 @Component({
@@ -14,12 +14,15 @@ export class TodoInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Input() transferObjectInput: any;
+
   name: string;
   activity: string;
   newEntry: todo;
 
   addTodo() {
       this.newEntry = {name:this.name,activity:this.activity};
+      this.transferObjectInput.text="input schaudi";
   }
 
 }
