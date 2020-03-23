@@ -1,1 +1,4 @@
-<span>LIST: {{transferArrayList[1].name}}</span>
+<tr *ngFor="let item of transferArrayList">
+  <td>{{item.name}}</td>
+  <td>{{item.activity}}</td>
+</tr>
