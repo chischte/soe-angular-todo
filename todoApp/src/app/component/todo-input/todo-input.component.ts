@@ -14,15 +14,15 @@ export class TodoInputComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() transferObjectInput: any;
+  @Input() transferArrayInput: Array<todo>=[];
 
   name: string;
   activity: string;
   newEntry: todo;
 
   addTodo() {
-      this.newEntry = {name:this.name,activity:this.activity};
-      this.transferObjectInput.text="input schaudi";
+    this.newEntry = {name: this.name, activity: this.activity};
+    this.transferArrayInput.push(this.newEntry);
   }
 
 }

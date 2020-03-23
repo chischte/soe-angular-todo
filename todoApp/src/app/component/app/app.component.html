@@ -1,3 +1,6 @@
-<app-todo-input [(transferObjectInput)]="transferObjectRoot"></app-todo-input>
-<app-todo-list [(transferObjectList)]="transferObjectRoot"></app-todo-list>
-<span>PARENT: {{transferObjectRoot.text}}</span>
+<app-todo-input [(transferArrayInput)]="transferArrayRoot"></app-todo-input>
+<br>
+<app-todo-list [(transferArrayList)]="transferArrayRoot"></app-todo-list>
+<br>
+<!--span>ROOT: {{transferArrayRoot[0].name}}</span-->
+
