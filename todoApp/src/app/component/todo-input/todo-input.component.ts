@@ -23,6 +23,8 @@ export class TodoInputComponent implements OnInit {
   addTodo() {
     this.newEntry = {name: this.name, activity: this.activity};
     this.transferArrayInput.push(this.newEntry);
+    this.name="";
+    this.activity="";
   }
 
 }
