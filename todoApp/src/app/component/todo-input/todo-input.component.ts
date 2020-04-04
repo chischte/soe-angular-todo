@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {todo} from "../model/todo";
 
 @Component({
@@ -15,10 +15,12 @@ export class TodoInputComponent implements OnInit {
   }
 
   @Input() transferArrayInput: Array<todo>=[];
+  @Output() outputMessage = new EventEmitter;
 
   name: string;
   activity: string;
   newEntry: todo;
+  outputString:string;
 
   addTodo() {
     this.newEntry = {name: this.name, activity: this.activity};
@@ -26,5 +28,10 @@ export class TodoInputComponent implements OnInit {
     this.name="";
     this.activity="";
   }
+
+  generateOutput(){
+    this.outputString="HAUDI"
+    this.outputMessage.emit(this.outputString);
+      }
 
 }

@@ -1,5 +1,6 @@
-<app-todo-input [(transferArrayInput)]="transferArrayRoot"></app-todo-input>
+<app-todo-input [(transferArrayInput)]="transferArrayRoot" (outputMessage)="receiveOutputFunction($event)"></app-todo-input>
 <br>
 <app-todo-list [(transferArrayList)]="transferArrayRoot"></app-todo-list>
 <br>
+<h3>{{receivedOutputMessage}}</h3>
 
