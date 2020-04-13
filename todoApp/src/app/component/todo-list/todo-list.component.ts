@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {todo} from "../model/todo";
+import {Todo} from "../model/todo";
 
 @Component({
   selector: 'app-todo-list',
@@ -8,11 +8,18 @@ import {todo} from "../model/todo";
 })
 export class TodoListComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  @Input() transferArrayList:Array<todo>=[];
+  @Input() transferArrayList: Array<Todo> = [];
 
+  deleteTodo(msg: Todo) {
+    const index: number = this.transferArrayList.indexOf(msg);
+    if (index !== -1) {
+      this.transferArrayList.splice(index, 1);
+    }
+  }
 }

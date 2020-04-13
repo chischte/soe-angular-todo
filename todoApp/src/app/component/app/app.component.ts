@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {todo} from "../model/todo";
+import {Todo} from "../model/todo";
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import {todo} from "../model/todo";
 })
 export class AppComponent {
   title = 'todoApp';
-  transferArrayRoot: Array<todo> = [];
+  transferArrayRoot: Array<Todo> = [];
   receivedOutputMessage: String;
 
   receiveOutputFunction(msg){

@@ -1,4 +1,4 @@
-export interface todo {
+export interface Todo {
   name: string;
   activity: string;
 }
