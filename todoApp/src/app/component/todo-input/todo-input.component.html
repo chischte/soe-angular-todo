@@ -1,9 +1,35 @@
-<span>Name: <input id="name" [(ngModel)]="name"></span>
-<p></p>
-<span>Todo: <input id="activity" [(ngModel)]="activity"></span>
-<p></p>
-<button (click)="addTodo()">Submit</button>
-<br>
-<button (click)="generateOutput()">Generate Output</button>
 
+  <div class="row">
+    <div class="col-sm-2 col-lg-1 "><label>Name:</label></div>
+    <div class="col-sm-10 col-lg-5"><input class="form-control" id="name" [(ngModel)]="name"></div>
+    <div class="col-sm-2 col-lg-1 "><label>Todo</label></div>
+    <div class="col-sm-10 col-lg-5"><input class="form-control" id="activity" [(ngModel)]="activity"></div>
+  </div>
+  <p></p>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 ">
+      <button (click)="addTodo()" class="btn btn-primary css">Submit</button>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <button (click)="generateOutput()" class="btn btn-primary">Generate Output</button>
+    </div>
+  </div>
+  <p></p>
+  <p>CHECK AUTO GRID:</p>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <button class="btn-dark gridbutton">checkGrid</button>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <button class="btn-dark gridbutton">checkGrid</button>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <button class="btn-dark gridbutton">checkGrid</button>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+      <button class="btn-dark gridbutton">checkGrid</button>
+    </div>
+  </div>
 
