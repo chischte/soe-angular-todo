@@ -1,17 +1,30 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Todo} from "../model/todo";
+import {TodoService} from "../../services/todo.service";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'todoApp';
-  transferArrayRoot: Array<Todo> = [];
-  receivedOutputMessage: String;
+export class AppComponent  implements OnInit {
+  constructor(private todoService: TodoService) { }
 
-  receiveOutputFunction(msg){
-  this.receivedOutputMessage=msg;
+  title = 'todoApp';
+  todoList: Array<Todo> = [];
+
+  ngOnInit(): void {
+    this.getTodoList();
+  }
+
+  updateTodoList(): void {
+    this.getTodoList();
+  }
+
+  getTodoList() {
+    this.todoService.getTodos()
+      .subscribe((data: Array<Todo>) => {
+        this.todoList = data;
+      });
   }
 }

@@ -1,37 +1,29 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from "../model/todo";
+import {TodoService} from "../../services/todo.service";
 
 @Component({
   selector: 'app-todo-input',
   templateUrl: './todo-input.component.html',
   styleUrls: ['./todo-input.component.css']
 })
-export class TodoInputComponent implements OnInit {
+export class TodoInputComponent {
 
-  constructor() {
-  }
+  constructor(private todoService: TodoService) { }
 
-  ngOnInit(): void {
-  }
+  todoName: string;
+  todoActivity: string;
 
-  @Input() transferArrayInput: Array<Todo>=[];
-  @Output() outputMessage = new EventEmitter;
-
-  name: string;
-  activity: string;
-  newEntry: Todo;
-  outputString:string;
+  @Input() todoArrayInput: Array<Todo>=[];
+  @Output() updateTodoList: EventEmitter<void> = new EventEmitter<void>();
 
   addTodo() {
-    this.newEntry = {name: this.name, activity: this.activity};
-    this.transferArrayInput.push(this.newEntry);
-    this.name="";
-    this.activity="";
+    const todo = {name: this.todoName, value: this.todoActivity};
+    this.todoService.insertTodo(todo)
+      .subscribe((response: any) => {
+        this.todoName = '';
+        this.todoActivity = '';
+        this.updateTodoList.emit();
+      });
   }
-
-  generateOutput(){
-    this.outputString="HAUDI"
-    this.outputMessage.emit(this.outputString);
-      }
-
 }

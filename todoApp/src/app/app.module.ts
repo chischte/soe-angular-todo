@@ -7,6 +7,7 @@ import { TodoInputComponent } from './component/todo-input/todo-input.component'
 import { TodoListComponent } from './component/todo-list/todo-list.component';
 import {FormsModule} from "@angular/forms";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

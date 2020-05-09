@@ -1,25 +1,23 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from "../model/todo";
+import {TodoService} from "../../services/todo.service";
 
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
   styleUrls: ['./todo-list.component.css']
 })
-export class TodoListComponent implements OnInit {
+export class TodoListComponent{
 
-  constructor() {
-  }
+  constructor(private todoService: TodoService) { }
 
-  ngOnInit(): void {
-  }
+  @Input() todoArrayList: Array<Todo> = [];
+  @Output() updateTodoList: EventEmitter<void> = new EventEmitter<void>();
 
-  @Input() transferArrayList: Array<Todo> = [];
-
-  deleteTodo(msg: Todo) {
-    const index: number = this.transferArrayList.indexOf(msg);
-    if (index !== -1) {
-      this.transferArrayList.splice(index, 1);
-    }
+  deleteTodo(index: number): void {
+    this.todoService.deleteTodo(this.todoArrayList[index])
+      .subscribe((response: any) => {
+        this.updateTodoList.emit();
+      });
   }
 }
